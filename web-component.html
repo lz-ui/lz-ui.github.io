@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cos-1251140835.cos.ap-shanghai.myqcloud.com/cdn/fonts/iconfont.css">
     <script src="https://cdn.jczxw.cn/lz-ui/cos/2019112301436/647e578ce7cf/dist/vue.min.js"></script>
-    <script src="https://cdn.jczxw.cn/lz-ui/cos/2019112304142/19c058c1ff2e/dist/lz-ui-web-component.js"></script>
+    <script src="https://cos-1251140835.cos.ap-shanghai.myqcloud.com/cdn/web-component/lz-ui-web-component-2020-06-29.js"></script>
     <title>Lz-ui</title>
     <style>
         *{
@@ -16,22 +17,23 @@
             width: 100%;
             height: 100%;
         }
-        .box{
+        /* .box{
             display: flex;
             justify-content: center;
             align-content: center;
             height: 100%;
-        }
+        } */
 
     </style>
 </head>
 <body>
     <div id="app" class="box">
-        <lz-switch v-model="isSwitch">
-            <span class="text">{{switchText}}</span>
-        </lz-switch>
-        <br/>
-        <lz-wiget-ip></lz-wiget-ip>
+        <div style="text-align: center;display: block;margin: 60px auto;">
+            <lz-wiget-ip></lz-wiget-ip>
+        </div>
+        <div>
+            <lz-wiget-upload @list-update="listUpdate" style="width:800px;margin:0 auto"></lz-wiget-upload>
+        </div>
     </div>
     <script>
         new Vue({
@@ -40,6 +42,11 @@
                 return { 
                     isSwitch: false,
                     switchText: 'switch'
+                }
+            },
+            methods: {
+                listUpdate(data) {
+                    console.log(data)
                 }
             }
         })
